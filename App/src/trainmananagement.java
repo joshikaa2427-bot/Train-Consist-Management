@@ -1,22 +1,36 @@
 public static void main(String[] args) {
-    System.out.println("===========================================");
-    System.out.println(" UC3 - Track Unique Bogie IDs ");
-    System.out.println("===========================================\n");
+    System.out.println("===============================================");
+    System.out.println(" UC7 - Sort Bogies by Capacity (Comparator) ");
+    System.out.println("===============================================\n");
 
-    Set<String> bogies = new HashSet<>();
+    List<Bogie> bogies = new ArrayList<>();
 
-    bogies.add("BG101");
-    bogies.add("BG102");
-    bogies.add("BG103");
-    bogies.add("BG104");
-    bogies.add("BG101");
-    bogies.add("BG102");
+    bogies.add(new Bogie("Sleeper", 72));
+    bogies.add(new Bogie("AC Chair", 56));
+    bogies.add(new Bogie("First Class", 24));
+    bogies.add(new Bogie("General", 90));
 
-    System.out.println("Bogie IDs After Insertion:");
-    System.out.println(bogies);
+    System.out.println("Before Sorting:");
+    for (Bogie b : bogies) {
+        System.out.println(b.name + " -> " + b.capacity);
+    }
 
-    System.out.println("\nNote:");
-    System.out.println("Duplicates are automatically ignored by HashSet.");
+    bogies.sort(Comparator.comparingInt(b -> b.capacity));
 
-    System.out.println("\nUC3 uniqueness validation completed...");
+    System.out.println("\nAfter Sorting by Capacity:");
+    for (Bogie b : bogies) {
+        System.out.println(b.name + " -> " + b.capacity);
+    }
+
+    System.out.println("\nUC7 sorting completed...");
+}
+
+static class Bogie {
+    String name;
+    int capacity;
+
+    Bogie(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+    }
 }
