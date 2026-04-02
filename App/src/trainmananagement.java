@@ -1,22 +1,19 @@
 public static void main(String[] args) {
     System.out.println("===========================================");
-    System.out.println(" UC3 - Track Unique Bogie IDs ");
+    System.out.println(" UC6 - Map Bogie to Capacity (HashMap) ");
     System.out.println("===========================================\n");
 
-    Set<String> bogies = new HashSet<>();
+    Map<String, Integer> capacityMap = new HashMap<>();
 
-    bogies.add("BG101");
-    bogies.add("BG102");
-    bogies.add("BG103");
-    bogies.add("BG104");
-    bogies.add("BG101");
-    bogies.add("BG102");
+    capacityMap.put("First Class", 24);
+    capacityMap.put("Cargo", 120);
+    capacityMap.put("Sleeper", 72);
+    capacityMap.put("AC Chair", 56);
 
-    System.out.println("Bogie IDs After Insertion:");
-    System.out.println(bogies);
+    System.out.println("Bogie Capacity Details:");
+    for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+        System.out.println(entry.getKey() + " -> " + entry.getValue());
+    }
 
-    System.out.println("\nNote:");
-    System.out.println("Duplicates are automatically ignored by HashSet.");
-
-    System.out.println("\nUC3 uniqueness validation completed...");
+    System.out.println("\nUC6 bogie-capacity mapping completed...");
 }
